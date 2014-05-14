@@ -6,6 +6,8 @@ Route::group(array('before' => 'guest'), function()
 
 	Route::get('login', array('as' => 'login', 'uses' => 'UserController@login'));
 	Route::post('login', array('uses' => 'UserController@doLogin'));
+	Route::get('register', array('as' => 'register', 'uses' => 'UserController@register'));
+	Route::post('register', array('uses' => 'UserController@doRegister'));
 });
 
 // for any logged in user
@@ -25,6 +27,10 @@ Route::group(array('before' => 'auth|user'), function()
 Route::group(array('before' => 'auth|admin'), function()
 {
 	Route::get('home', array('as' => 'home', 'uses' => 'UserController@home'));
+	Route::get('genres', array('as' => 'genre.index', 'uses' => 'GenreController@index'));
+	Route::get('movies', array('as' => 'movie.index', 'uses' => 'MoviesController@index'));
+	Route::get('movies/create', array('as' => 'movie.create', 'uses' => 'MoviesController@create'));
+	Route::post('movies/create', array('uses' => 'MoviesController@store'));
 });
 
 

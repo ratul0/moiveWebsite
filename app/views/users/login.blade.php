@@ -16,7 +16,7 @@
 	        </div>
 	        <div class="form-group">
 	          	{{ Form::label('password', 'Password *') }}
-	          	<span class="pull-right">{{ link_to_route('login', 'Forgot password?') }}</span>
+	          	
 	          	{{ Form::password('password', array('class' => 'form-control')) }}
 	          	{{ $errors->first('password') }}
 	        </div>
@@ -27,6 +27,6 @@
 
       	<hr/>
 
-      	Don't have an account? {{ link_to_route('login', 'Register here', array(), array('class' => 'btn btn-success btn-sm')) }}
+      	Don't have an account? {{ link_to_route('register', 'Register here', array(), array('class' => 'btn btn-success btn-sm')) }}
     </div>
 @stop

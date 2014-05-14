@@ -5,7 +5,7 @@
 		<div class="page-header">
 			<h2>{{ $title }}</h2>
 		</div>
-		<h1>Welcome {{ Auth::user()->username }}</h1>
+		<h1>Welcome {{ Auth::user()->user_name }}</h1>
       	
     </div>
 @stop

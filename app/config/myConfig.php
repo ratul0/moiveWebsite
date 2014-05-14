@@ -1,7 +1,7 @@
 <?php
 
 return array(
-	'siteName'	=>	'SUST CSE'
+	'siteName'	=>	'Movie Website'
 );
 
 

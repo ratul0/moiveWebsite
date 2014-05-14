@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'login',
+			'database'  => 'movie_website',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
