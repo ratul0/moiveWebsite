@@ -17,12 +17,16 @@
 					<th>Description</th>
 					<th>Movie Url</th>
 					<th>Age</th>
+					<th>View</th>
 
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($movies as $movie)
-					<tr>
+					@if($movie->age > Auth::user()->age)
+
+						@else
+						<tr>
 
 						<td>{{ Genre::where('id','=',$movie->genre_id)->first()->genre}}</td>
 						<td>{{ $movie->moive_name}}</td>
@@ -30,9 +34,15 @@
 						<td>{{$movie->movie_url}}</td>
 						<td>{{$movie->age}}</td>
 
-
+						<td>
+							<a href="{{ URL::route('movie.show',$movie->id); }}" class='btn btn-success btn-sm'>
+					        	<span class="glyphicon glyphicon-zoom-in"></span>
+							</a>
+						</td>
 
 					</tr>
+					@endif
+					
 				@endforeach
 			</tbody>
 		</table>

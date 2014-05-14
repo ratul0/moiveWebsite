@@ -2,6 +2,13 @@
 
 class MoviesController extends \BaseController {
 
+	private function embade($id){
+		$name = Movie::where('id','=',$id)->first()->movie_url;
+		$start = stripos($name,'=');
+
+		return substr($name,$start+1);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /movies
@@ -86,7 +93,11 @@ class MoviesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		// dd($this->embade($id));
+		return View::make('movies.show')
+						->with('embade',$this->embade($id))
+						->with('movie',Movie::where('id','=',$id)->first())
+						->with('title', 'Show Movie');
 	}
 
 	/**

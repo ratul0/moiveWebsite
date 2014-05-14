@@ -13,11 +13,12 @@ Route::group(array('before' => 'guest'), function()
 // for any logged in user
 Route::group(array('before' => 'auth'), function()
 {
+	Route::get('movies/show/{id}', array('as' => 'movie.show', 'uses' => 'MoviesController@show'));
 	Route::get('movies', array('as' => 'movie.index', 'uses' => 'MoviesController@index'));
 	Route::get('logout', array('as' => 'logout', 'uses' => 'UserController@logout'));
 });
 
-// for student
+// for user
 Route::group(array('before' => 'auth|user'), function()
 {
 	
