@@ -13,8 +13,19 @@
 
                 @if(Auth::check())
                     
-                   
-
+                   @if(Session::get('role') == 2)
+                        <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Movies <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        
+                        <li>{{ HTML::linkRoute('movie.index','All Movies') }}</li>
+                        
+                      </ul>
+                    </li>
+                        
+                        
+                      @endif
+                
                     
                     @endif
                     
@@ -31,13 +42,7 @@
 
                       @if(Session::get('role') == 1)
                         
-                        <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        
-                        <li>{{ HTML::linkRoute('genre.index','Genres') }}</li>
-                      </ul>
-                    </li>
+                       
 
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Movies <b class="caret"></b></a>
@@ -50,7 +55,8 @@
                         
                       @endif
                       @if(Session::get('role') == 2)
-                        <li><a href="#">User</a></li>
+                        
+                        
                         
                       @endif
                         
